@@ -25,7 +25,7 @@ export default class NewsComponent extends Component {
   //run after rendering of a component
   componentDidMount() {
     document.title = `${this.props.category}-News`;
-    let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=${this.props.apiKey}&page=${this.state.page}&pageSize=15`;
+    let url = `https://cors-anywhere.herokuapp.com/https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=${this.props.apiKey}&page=${this.state.page}&pageSize=15`;
     this.fetchData(url);
   }
 
@@ -49,7 +49,7 @@ export default class NewsComponent extends Component {
   //fetch more data for infinite scrolling
   fetchMoreData = () => {
     this.setState({ page: this.state.page + 1 });
-    let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=${this.props.apiKey}&page=${this.state.page}&pageSize=15`;
+    let url = `https://cors-anywhere.herokuapp.com/https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=${this.props.apiKey}&page=${this.state.page}&pageSize=15`;
     axios
       .get(url)
       .then((response) => {
